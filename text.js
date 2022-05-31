@@ -1,11 +1,11 @@
-const nomorOne = (arr) => {
+const nomorOne = (part) => {
   let match = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== 0) {
-      for (let j = i + 1; j < arr.length; j++) {
-        if (arr[i] === arr[j] && arr[j] !== 0) {
-          arr[i] = 0;
-          arr[j] = 0;
+  for (let i = 0; i < part.length; i++) {
+    if (part[i] !== 0) {
+      for (let j = i + 1; j < part.length; j++) {
+        if (part[i] === part[j] && part[j] !== 0) {
+          part[i] = 0;
+          part[j] = 0;
           match++;
         }
       }
@@ -24,12 +24,12 @@ console.log("soal a", nomorOne(soalA));
 console.log("soal b", nomorOne(soalB));
 console.log("soal c", nomorOne(soalC));
 
-const specialTest = (input) => {
-  const arrInput = input.split(" ");
-  const regex = /[$&+,:;=@#|'<>.-^()%!]/;
+const nomorTwo = (input) => {
+  const partInput = input.split(" ");
+  const rest = /[$&+,:;=@#|'<>.-^()%!]/;
   let count = 0;
-  for (let i = 0; i < arrInput.length; i++) {
-    if (arrInput[i].match(regex)) {
+  for (let i = 0; i < partInput.length; i++) {
+    if (partInput[i].match(rest)) {
       count++;
     }
   }
@@ -41,6 +41,6 @@ const a = "Saat mengecat tembok, Agung dib_antu oleh Raihan.";
 const b = "Berapa u(mur minimal[ untuk !mengurus ktp?";
 const c = "Masing-masing anak mendap(atkan uang jajan ya=ng be&rbeda.";
 
-console.log(specialTest(a));
-console.log(specialTest(b));
-console.log(specialTest(c));
+console.log(nomorTwo(a));
+console.log(nomorTwo(b));
+console.log(nomorTwo(c));
